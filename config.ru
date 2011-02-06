@@ -2,7 +2,6 @@
 ## Just run the application
 
 require 'sinatra'
-
-set :static, true
+require 'app'
 
 run Sinatra::Application
