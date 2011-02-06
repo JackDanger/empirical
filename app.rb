@@ -2,8 +2,9 @@
 SproutCoreHost = URI.parse 'http://0.0.0.0:4020'
 RiakHost       = URI.parse 'http://0.0.0.0:8098'
 
-get '/data/*' do
-  proxy SproutCoreHost, request.path.sub(/^\/app/, '/riak')
+get '/data*' do
+  uri = URI.parse request.url
+  proxy RiakHost, uri.path.sub(/^\/data/, '/riak') + '?' + uri.query
 end
 
 get '/*' do
@@ -17,5 +18,7 @@ def proxy uri, path
   elsif path[/(\.js\?|.js$)/]
     content_type :js
   end
-  open "http://#{uri.host}:#{uri.port}#{path}"
+  url = "http://#{uri.host}:#{uri.port}#{path}"
+  puts url
+  open url
 end
