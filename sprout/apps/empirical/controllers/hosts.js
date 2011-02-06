@@ -13,6 +13,14 @@
 Empirical.hostsController = SC.ArrayController.create(
 /** @scope Empirical.hostsController.prototype */ {
 
-  // TODO: Add your own code here.
+  summary: function () {
+    var len = this.get('length'), ret;
+    if (len && len > 0)
+      ret = 1 == len ? '1 Host' : "%@ Hosts".fmt(len)
+    else
+      ret = "No Hosts"
+
+    return ret
+  }.property('length').cacheable()
 
 }) ;

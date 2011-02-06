@@ -18,7 +18,6 @@ Empirical.HostDataSource = SC.DataSource.extend(
   // 
 
   fetch: function(store, query) {
-    console.log("fetch!", store, query)
     SC.Request.getUrl('/data?buckets=true').json()
       .notify(this, this.didFetchHosts, store, query)
       .send()
