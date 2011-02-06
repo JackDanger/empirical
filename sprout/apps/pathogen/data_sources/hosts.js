@@ -18,6 +18,7 @@ Pathogen.HostDataSource = SC.DataSource.extend(
   // 
 
   fetch: function(store, query) {
+    console.log("fetch!", store, query)
     SC.Request.getUrl('http://localhost:8098/riak?buckets=true').json()
       .notify(this, this.didFetchHosts, store, query)
       .send()
@@ -32,7 +33,7 @@ Pathogen.HostDataSource = SC.DataSource.extend(
       store.loadRecords(Pathogen.Host, resonse.get('body'))
     else
       store.dataSourceDidErrorQuery(query, response)
-  }
+  },
 
   // ..........................................................
   // RECORD SUPPORT
