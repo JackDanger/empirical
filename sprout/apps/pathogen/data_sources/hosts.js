@@ -19,7 +19,7 @@ Pathogen.HostDataSource = SC.DataSource.extend(
 
   fetch: function(store, query) {
     console.log("fetch!", store, query)
-    SC.Request.getUrl('http://localhost:8098/riak?buckets=true').json()
+    SC.Request.getUrl('/data?buckets=true').json()
       .notify(this, this.didFetchHosts, store, query)
       .send()
     // TODO: Add handlers to fetch data for specific queries.  
@@ -29,9 +29,13 @@ Pathogen.HostDataSource = SC.DataSource.extend(
   },
 
   didFetchHosts: function(response, store, query){
-    if (SC.ok(response))
-      store.loadRecords(Pathogen.Host, resonse.get('body'))
-    else
+    if (SC.ok(response)){
+      var items = response.get('body')['buckets']
+      var length = items.length
+      for (var i = 0; i < length; i++){
+        store.loadRecord(Pathogen.Host, {name: items[i], id: i}, i);
+      }
+    } else
       store.dataSourceDidErrorQuery(query, response)
   },
 
