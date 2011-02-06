@@ -38,7 +38,8 @@ Pathogen.mainPage = SC.Page.design({
       backgroundColor: 'white',
       contentView: SC.ListView.design({
         contentBinding: 'Pathogen.hostsController.arrangedObjects',
-        selectionBinding: 'Pathogen.hostsController.selection'
+        selectionBinding: 'Pathogen.hostsController.selection',
+        contentValueKey: 'name'
       })
         
     }),
