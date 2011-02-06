@@ -21,9 +21,10 @@ Pathogen.main = function main() {
 
   // Step 2. Set the content property on your primary controller.
   // This will make your app come alive!
+  var hosts = Pathogen.store.find(Pathogen.Host)
 
   // TODO: Set the content property on your primary controller
-  // ex: Pathogen.contactsController.set('content',Pathogen.contacts);
+  Pathogen.hostsController.set('content', hosts)
 
 } ;
 

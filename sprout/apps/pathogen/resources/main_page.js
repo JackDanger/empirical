@@ -37,8 +37,10 @@ Pathogen.mainPage = SC.Page.design({
       layout: {top: 36, bottom: 32, left: 0, right: 0},
       backgroundColor: 'white',
       contentView: SC.ListView.design({
-        
+        contentBinding: 'Pathogen.hostsController.arrangedObjects',
+        selectionBinding: 'Pathogen.hostsController.selection'
       })
+        
     }),
 
     bottomView: SC.ToolbarView.design({
