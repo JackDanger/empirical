@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Pathogen.hostsController
+// Project:   Empirical.hostsController
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 /** @class
 
@@ -10,8 +10,8 @@
 
   @extends SC.ArrayController
 */
-Pathogen.hostsController = SC.ArrayController.create(
-/** @scope Pathogen.hostsController.prototype */ {
+Empirical.hostsController = SC.ArrayController.create(
+/** @scope Empirical.hostsController.prototype */ {
 
   // TODO: Add your own code here.
 

@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Pathogen
+// Project:   Empirical
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 /** @namespace
 
@@ -10,10 +10,10 @@
   
   @extends SC.Object
 */
-Pathogen = SC.Application.create(
-  /** @scope Pathogen.prototype */ {
+Empirical = SC.Application.create(
+  /** @scope Empirical.prototype */ {
 
-  NAMESPACE: 'Pathogen',
+  NAMESPACE: 'Empirical',
   VERSION: '0.1.0',
 
   // This is your application store.  You will use this store to access all
@@ -23,7 +23,7 @@ Pathogen = SC.Application.create(
   // store: SC.Store.create().from(SC.Record.fixtures),
   store: SC.Store.create({
     commitRecordsAutomatically: YES
-  }).from('Pathogen.HostDataSource')
+  }).from('Empirical.HostDataSource')
   
   // TODO: Add global constants or singleton objects needed by your app here.
 

@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Pathogen.Hosts
+// Project:   Empirical.Hosts
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 /** @class
 
@@ -10,8 +10,8 @@
 
   @extends SC.DataSource
 */
-Pathogen.HostDataSource = SC.DataSource.extend(
-/** @scope Pathogen.Hosts.prototype */ {
+Empirical.HostDataSource = SC.DataSource.extend(
+/** @scope Empirical.Hosts.prototype */ {
 
   // ..........................................................
   // QUERY SUPPORT
@@ -33,7 +33,7 @@ Pathogen.HostDataSource = SC.DataSource.extend(
       var items = response.get('body')['buckets']
       var length = items.length
       for (var i = 0; i < length; i++){
-        store.loadRecord(Pathogen.Host, {name: items[i], id: i}, i);
+        store.loadRecord(Empirical.Host, {name: items[i], id: i}, i);
       }
     } else
       store.dataSourceDidErrorQuery(query, response)

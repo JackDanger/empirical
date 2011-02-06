@@ -1,12 +1,12 @@
 // ==========================================================================
-// Project:   Pathogen.hostsController Unit Test
+// Project:   Empirical.hostsController Unit Test
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen module test ok equals same stop start */
+/*globals Empirical module test ok equals same stop start */
 
-module("Pathogen.hostsController");
+module("Empirical.hostsController");
 
-// TODO: Replace with real unit test for Pathogen.hostsController
+// TODO: Replace with real unit test for Empirical.hostsController
 test("test description", function() {
   var expected = "test";
   var result   = "test";

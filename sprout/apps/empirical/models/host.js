@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Pathogen.Host
+// Project:   Empirical.Host
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 /** @class
 
@@ -11,8 +11,8 @@
   @extends SC.Record
   @version 0.1
 */
-Pathogen.Host = SC.Record.extend(
-/** @scope Pathogen.Host.prototype */ {
+Empirical.Host = SC.Record.extend(
+/** @scope Empirical.Host.prototype */ {
 
   id: SC.Record.attr(Number),
   name: SC.Record.attr(String),

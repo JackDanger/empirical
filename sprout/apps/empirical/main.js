@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Pathogen
+// Project:   Empirical
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 // This is the function that will start your app running.  The default
 // implementation will load any fixtures you have created then instantiate
@@ -11,21 +11,21 @@
 // As you develop your application you will probably want to override this.
 // See comments for some pointers on what to do next.
 //
-Pathogen.main = function main() {
+Empirical.main = function main() {
 
   // Step 1: Instantiate Your Views
   // The default code here will make the mainPane for your application visible
   // on screen.  If you app gets any level of complexity, you will probably 
   // create multiple pages and panes.  
-  Pathogen.getPath('mainPage.mainPane').append() ;
+  Empirical.getPath('mainPage.mainPane').append() ;
 
   // Step 2. Set the content property on your primary controller.
   // This will make your app come alive!
-  var hosts = Pathogen.store.find(Pathogen.Host)
+  var hosts = Empirical.store.find(Empirical.Host)
 
   // TODO: Set the content property on your primary controller
-  Pathogen.hostsController.set('content', hosts)
+  Empirical.hostsController.set('content', hosts)
 
 } ;
 
-function main() { Pathogen.main(); }
+function main() { Empirical.main(); }

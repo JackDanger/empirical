@@ -1,12 +1,12 @@
 // ==========================================================================
-// Project:   Pathogen.Host Fixtures
+// Project:   Empirical.Host Fixtures
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 sc_require('models/host');
 
-Pathogen.Host.FIXTURES = [
+Empirical.Host.FIXTURES = [
 
   // TODO: Add your data fixtures here.
   // All fixture records must have a unique primary key (default 'guid').  See 

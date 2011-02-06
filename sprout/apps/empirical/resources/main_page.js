@@ -1,11 +1,11 @@
 // ==========================================================================
-// Project:   Pathogen - mainPage
+// Project:   Empirical - mainPage
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Pathogen */
+/*globals Empirical */
 
 // This page describes the main user interface for your application.  
-Pathogen.mainPage = SC.Page.design({
+Empirical.mainPage = SC.Page.design({
 
   // The main pane is made visible on screen as soon as your app is loaded.
   // Add childViews to this pane for views to display immediately on page 
@@ -37,8 +37,8 @@ Pathogen.mainPage = SC.Page.design({
       layout: {top: 36, bottom: 32, left: 0, right: 0},
       backgroundColor: 'white',
       contentView: SC.ListView.design({
-        contentBinding: 'Pathogen.hostsController.arrangedObjects',
-        selectionBinding: 'Pathogen.hostsController.selection',
+        contentBinding: 'Empirical.hostsController.arrangedObjects',
+        selectionBinding: 'Empirical.hostsController.selection',
         contentValueKey: 'name'
       })
         
