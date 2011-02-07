@@ -66,12 +66,12 @@ Empirical.mainPage = SC.Page.design({
         contentView: SC.ListView.design({
           contentBinding: 'Empirical.sessionsController.arrangedObjects',
           selectionBinding: 'Empirical.sessionsController.selection',
-          contentValueKey: 'name'
+          contentValueKey: 'name',
           target: 'Empirical.sessionsController',
           action: 'changeSession'
         })
-        
-      })
+      }),
+
       pathLabel: SC.LabelView.design({
         layout: {top: 46, height: 20, left: 440, right: 0},
         value: 'Paths for %'
