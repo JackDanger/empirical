@@ -49,26 +49,43 @@ Empirical.mainPage = SC.Page.design({
           selectionBinding: 'Empirical.hostsController.selection',
           contentValueKey: 'name',
           target: 'Empirical.hostsController',
-          action: 'changeSession'
+          action: 'changeHost'
         }),
         
       }),
 
       sessionLabel: SC.LabelView.design({
-        layout: {top: 46, height: 20, left: 240, right: 0},
+        layout: {top: 46, height: 20, left: 240, width: 200},
         value: 'Sessions for %'
       }),
 
       sessionView: SC.ScrollView.design({
         hasHorizontalScroller: NO,
-        layout: {top: 66, bottom: 32, left: 240, right: 0},
+        layout: {top: 66, bottom: 32, left: 240, width: 200},
         backgroundColor: 'white',
         contentView: SC.ListView.design({
           contentBinding: 'Empirical.sessionsController.arrangedObjects',
           selectionBinding: 'Empirical.sessionsController.selection',
           contentValueKey: 'name'
+          target: 'Empirical.sessionsController',
+          action: 'changeSession'
         })
         
+      })
+      pathLabel: SC.LabelView.design({
+        layout: {top: 46, height: 20, left: 440, right: 0},
+        value: 'Paths for %'
+      }),
+
+      pathView: SC.ScrollView.design({
+        hasHorizontalScroller: NO,
+        layout: {top: 66, bottom: 32, left: 440, width: 200},
+        backgroundColor: 'white',
+        contentView: SC.ListView.design({
+          contentBinding: 'Empirical.pathsController.arrangedObjects',
+          selectionBinding: 'Empirical.pathsController.selection',
+          contentValueKey: 'display'
+        })
       })
     }),
 

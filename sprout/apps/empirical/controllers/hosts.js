@@ -23,12 +23,11 @@ Empirical.hostsController = SC.ArrayController.create(
     return ret
   }.property('length').cacheable(),
 
-  changeSession: function(){
+  changeHost: function(){
     var selected = this.get('selection')
     var name = selected.getEach('name')[0]
     var query = SC.Query.local(Empirical.Session, { name: name});
     Empirical.sessionsController.set('content', Empirical.riak.find(query))
-    // Empirical.store.find(Empirical.Session, {name: name})
   }
 
 

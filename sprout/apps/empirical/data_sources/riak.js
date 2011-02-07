@@ -24,7 +24,10 @@ Empirical.RiakDataSource = SC.DataSource.extend(
         url = '/data?buckets=true'
         break;
       case Empirical.Session:
-        url = '/data/'+query.name+'?keys=true'
+        url = '/data/'+query.host+'?keys=true'
+        break;
+      case Empirical.Path:
+        url = '/data/'+query.host+'/'+query.session
         break;
     }
     SC.Request.getUrl(url).json()
@@ -56,6 +59,14 @@ Empirical.RiakDataSource = SC.DataSource.extend(
   },
 
   loadSession: function(response, store, query){
+    var items = response.get('body')['keys']
+    var length = items.length
+    for (var i = 0; i < length; i++){
+      store.loadRecord(Empirical.Session, {name: items[i], id: i}, i);
+    }
+  },
+
+  loadPath: function(response, store, query){
     var items = response.get('body')['keys']
     var length = items.length
     for (var i = 0; i < length; i++){
