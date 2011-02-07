@@ -18,9 +18,6 @@ Empirical.RiakDataSource = SC.DataSource.extend(
   // 
 
   fetch: function(store, query) {
-    console.log(query.recordType)
-    console.log(query.conditions)
-    console.log(query.name)
     var url
     switch(query.recordType){
       case Empirical.Host:

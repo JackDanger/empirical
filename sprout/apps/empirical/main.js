@@ -21,12 +21,9 @@ Empirical.main = function main() {
 
   // Step 2. Set the content property on your primary controller.
   // This will make your app come alive!
-  var hosts    = Empirical.riak.find(Empirical.Host)
-  var query    = SC.Query.local(Empirical.Session, { name: '' });
-  var sessions = Empirical.riak.find(Empirical.Session)
+  var hosts = Empirical.riak.find(Empirical.Host)
 
   Empirical.hostsController.set('content', hosts)
-  Empirical.sessionsController.set('content', sessions)
 
 } ;
 
