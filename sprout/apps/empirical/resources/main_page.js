@@ -32,16 +32,25 @@ Empirical.mainPage = SC.Page.design({
 
     }),
 
-    middleView: SC.ScrollView.design({
-      hasHorizontalScroller: NO,
-      layout: {top: 36, bottom: 32, left: 0, right: 0},
-      backgroundColor: 'white',
-      contentView: SC.ListView.design({
-        contentBinding: 'Empirical.hostsController.arrangedObjects',
-        selectionBinding: 'Empirical.hostsController.selection',
-        contentValueKey: 'name'
-      })
+    middleView: SC.View.design({
+      childViews: 'hostLabel hostView'.w(),
+
+      hostLabel: SC.LabelView.design({
+        layout: {top: 46, height: 20, left: 0, width: 200},
+        value: 'Select a hostname:'
+      }),
+
+      hostView: SC.ScrollView.design({
+        hasHorizontalScroller: NO,
+        layout: {top: 66, bottom: 32, left: 0, width: 200},
+        backgroundColor: 'white',
+        contentView: SC.ListView.design({
+          contentBinding: 'Empirical.hostsController.arrangedObjects',
+          selectionBinding: 'Empirical.hostsController.selection',
+          contentValueKey: 'name'
+        })
         
+      }),
     }),
 
     bottomView: SC.ToolbarView.design({
