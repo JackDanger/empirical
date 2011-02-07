@@ -10,7 +10,7 @@
 
   @extends SC.DataSource
 */
-Empirical.HostDataSource = SC.DataSource.extend(
+Empirical.RiakDataSource = SC.DataSource.extend(
 /** @scope Empirical.Hosts.prototype */ {
 
   // ..........................................................
@@ -18,8 +18,20 @@ Empirical.HostDataSource = SC.DataSource.extend(
   // 
 
   fetch: function(store, query) {
-    SC.Request.getUrl('/data?buckets=true').json()
-      .notify(this, this.didFetchHosts, store, query)
+    console.log(query.recordType)
+    console.log(query.conditions)
+    console.log(query.name)
+    var url
+    switch(query.recordType){
+      case Empirical.Host:
+        url = '/data?buckets=true'
+        break;
+      case Empirical.Session:
+        url = '/data/'+query.name+'?keys=true'
+        break;
+    }
+    SC.Request.getUrl(url).json()
+      .notify(this, this.didFetch, store, query)
       .send()
     // TODO: Add handlers to fetch data for specific queries.  
     // call store.dataSourceDidFetchQuery(query) when done.
@@ -27,15 +39,31 @@ Empirical.HostDataSource = SC.DataSource.extend(
     return NO ; // return YES if you handled the query
   },
 
-  didFetchHosts: function(response, store, query){
-    if (SC.ok(response)){
-      var items = response.get('body')['buckets']
-      var length = items.length
-      for (var i = 0; i < length; i++){
-        store.loadRecord(Empirical.Host, {name: items[i], id: i}, i);
-      }
-    } else
+  didFetch: function(response, store, query){
+    if (SC.ok(response))
+
+      this[
+        'load'+query.recordType.toString().split('.').reverse()[0]
+      ](response, store, query)
+
+    else
       store.dataSourceDidErrorQuery(query, response)
+  },
+
+  loadHost: function(response, store, query){
+    var items = response.get('body')['buckets']
+    var length = items.length
+    for (var i = 0; i < length; i++){
+      store.loadRecord(Empirical.Host, {name: items[i], id: i}, i);
+    }
+  },
+
+  loadSession: function(response, store, query){
+    var items = response.get('body')['keys']
+    var length = items.length
+    for (var i = 0; i < length; i++){
+      store.loadRecord(Empirical.Session, {name: items[i], id: i}, i);
+    }
   },
 
   // ..........................................................

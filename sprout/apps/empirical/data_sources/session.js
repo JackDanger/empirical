@@ -18,6 +18,7 @@ Empirical.SessionDataSource = SC.DataSource.extend(
   // 
 
   fetch: function(store, query) {
+    console.log(store, query)
     SC.Request.getUrl('/data/'+query.host+'?keys=true').json()
       .notify(this, this.didFetchSessions, store, query)
       .send()

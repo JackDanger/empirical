@@ -47,8 +47,10 @@ Empirical.mainPage = SC.Page.design({
         contentView: SC.ListView.design({
           contentBinding: 'Empirical.hostsController.arrangedObjects',
           selectionBinding: 'Empirical.hostsController.selection',
-          contentValueKey: 'name'
-        })
+          contentValueKey: 'name',
+          target: 'Empirical.hostsController',
+          action: 'changeSession'
+        }),
         
       }),
 

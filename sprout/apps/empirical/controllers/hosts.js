@@ -21,6 +21,13 @@ Empirical.hostsController = SC.ArrayController.create(
       ret = "No Hosts"
 
     return ret
-  }.property('length').cacheable()
+  }.property('length').cacheable(),
+
+  changeSession: function(){
+    var selected = this.get('selection')
+    var name = selected.getEach('name')[0]
+    // Empirical.store.find(Empirical.Session, {name: name})
+  }
+
 
 }) ;
