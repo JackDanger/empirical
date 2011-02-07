@@ -33,7 +33,7 @@ Empirical.mainPage = SC.Page.design({
     }),
 
     middleView: SC.View.design({
-      childViews: 'hostLabel hostView sessionLabel sessionList'.w(),
+      childViews: 'hostLabel hostView sessionLabel sessionView'.w(),
 
       hostLabel: SC.LabelView.design({
         layout: {top: 46, height: 20, left: 20, width: 200},

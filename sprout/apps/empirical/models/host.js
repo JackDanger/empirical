@@ -14,7 +14,6 @@
 Empirical.Host = SC.Record.extend(
 /** @scope Empirical.Host.prototype */ {
 
-  id: SC.Record.attr(Number),
   name: SC.Record.attr(String),
   sessions: SC.Record.attr(Array)
 

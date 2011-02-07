@@ -14,6 +14,8 @@
 Empirical.Session = SC.Record.extend(
 /** @scope Empirical.Session.prototype */ {
 
-  // TODO: Add your own code here.
+  name: SC.Record.attr(String),
+  host: SC.Record.attr(Empirical.Host),
+  paths: SC.Record.attr(Array)
 
 }) ;
