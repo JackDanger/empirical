@@ -36,12 +36,14 @@ def proxy uri
 end
 
 def get_hosts
+  puts "get hosts"
   Net::HTTP.start(Riak.host, Riak.port) do |http|
     http.get(Riak.path+'riak/?buckets=true').read_body
   end
 end
 
 def get_sessions host
+  puts "get sessions"
   Net::HTTP.start(Riak.host, Riak.port) do |http|
     http.post(
       Riak.path+'mapred',
@@ -51,6 +53,7 @@ def get_sessions host
 end
 
 def get_paths host, session
+  puts "get paths"
   Net::HTTP.start(Riak.host, Riak.port) do |http|
     http.post(
       Riak.path+'mapred',
@@ -139,18 +142,18 @@ def path_query host, session
             };"
           }
         },
-        {"reduce":
-          {"language": "javascript",
-           "source":"function(values, arg){
-               return values.reduce(function(acc, item){
-                 if(!acc.indexOf[item])
-                  acc.push(item)
-                 return acc;
-               });
-            }"
-          }
+      {"reduce":
+        {"language": "javascript",
+         "source":"function(values, arg){
+           return values;
+           if(0 == values.length)
+             return [];
+           return values.sort(function(a, b){
+             return a.ctime > b.ctime
+           });
+          }"
         }
-      ]
+      }]
     }
   }
 end

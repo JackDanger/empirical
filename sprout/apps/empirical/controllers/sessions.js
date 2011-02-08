@@ -16,8 +16,9 @@ Empirical.sessionsController = SC.ArrayController.create(
 
   changeSession: function(){
     var selected = this.get('selection')
-    var name = selected.getEach('name')[0]
-    var query = SC.Query.local(Empirical.Path, { name: name});
+    var session_id = selected.getEach('session')[0]
+    console.log(session_id)
+    var query = SC.Query.local(Empirical.Path, { session_id: session_id});
     Empirical.pathsController.set('content', Empirical.riak.find(query))
   }
 

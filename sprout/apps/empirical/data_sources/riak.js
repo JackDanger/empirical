@@ -27,7 +27,7 @@ Empirical.RiakDataSource = SC.DataSource.extend(
         url = '/'+query.host+'/sessions'
         break;
       case Empirical.Path:
-        url = '/'+query.host+'/'+query.session+'/paths'
+        url = '/'+query.host+'/'+query.session_id+'/paths'
         break;
     }
     SC.Request.getUrl(url).json()
