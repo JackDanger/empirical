@@ -14,6 +14,11 @@
 Empirical.Path = SC.Record.extend(
 /** @scope Empirical.Path.prototype */ {
 
-  // TODO: Add your own code here.
+  session_id: SC.Record.attr(String),
+  path: SC.Record.attr(String),
+  timer: SC.Record.attr(Number),
+  ctime: SC.Record.attr(Number),
+  user_name: SC.Record.attr(String),
+  user_id: SC.Record.attr(Number)
 
 }) ;
