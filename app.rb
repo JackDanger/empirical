@@ -65,7 +65,7 @@ end
 def session_query host
   %Q{
       {
-        "inputs": "Zacchaeus.local",
+        "inputs": "#{host}",
         "query": [
           {"map":
             {"language": "javascript",
@@ -73,9 +73,10 @@ def session_query host
                 if (v.values) {
                   var ret = [],
                       a = Riak.mapValuesJson(v)[0];
-                  if (a.session_id){
-                    return [a]
-                  }
+                  if (a.session_id)
+                    return [a];
+                  else
+                    return [];
                 } else {
                   return []
                 }
@@ -85,8 +86,9 @@ def session_query host
       {"reduce":
         {"language": "javascript",
          "source":"function(values, arg){
+           if(values.length == 0)
+             return [];
            return values.reduce(function(a, b){
-
              a = Array == a.constructor ? a : [a];
              b = Array == b.constructor ? b : [b];
 
