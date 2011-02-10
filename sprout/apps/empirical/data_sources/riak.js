@@ -63,7 +63,6 @@ Empirical.RiakDataSource = SC.DataSource.extend(
     var length = items.length
     for (var i = 0; i < length; i++){
       var name = items[i].user_name || items[i].user_id || 'Guest'
-      console.log(items[i].session_id)
       store.loadRecord(Empirical.Session, {name: name, id: items[i].session_id}, i);
     }
   },
@@ -72,7 +71,11 @@ Empirical.RiakDataSource = SC.DataSource.extend(
     var items = response.get('body')
     var length = items.length
     for (var i = 0; i < length; i++){
-      store.loadRecord(Empirical.Path, items[i], i);
+      var path = items[i]
+      if (!path.timer)
+        path.timer = 0.00
+      path.display = path.path + ' ('+path.timer.toString().substring(0,4)+' sec)'
+      store.loadRecord(Empirical.Path, path, i);
     }
   },
 

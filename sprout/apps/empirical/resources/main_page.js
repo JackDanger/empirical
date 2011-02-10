@@ -33,7 +33,7 @@ Empirical.mainPage = SC.Page.design({
     }),
 
     middleView: SC.View.design({
-      childViews: 'hostLabel hostView sessionLabel sessionView'.w(),
+      childViews: 'hostLabel hostView sessionLabel sessionView pathLabel pathView'.w(),
 
       hostLabel: SC.LabelView.design({
         layout: {top: 46, height: 20, left: 20, width: 200},
@@ -73,13 +73,13 @@ Empirical.mainPage = SC.Page.design({
       }),
 
       pathLabel: SC.LabelView.design({
-        layout: {top: 46, height: 20, left: 440, right: 0},
+        layout: {top: 46, height: 20, left: 460, width: 400},
         value: 'Paths for %'
       }),
 
       pathView: SC.ScrollView.design({
         hasHorizontalScroller: NO,
-        layout: {top: 66, bottom: 32, left: 440, width: 200},
+        layout: {top: 66, bottom: 32, left: 460, width: 400},
         backgroundColor: 'white',
         contentView: SC.ListView.design({
           contentBinding: 'Empirical.pathsController.arrangedObjects',
