@@ -12,8 +12,6 @@ http.createServer(function(request, response){
   var uri = url.parse(request.url, true)
 
   sys.puts(request.url)
-  sys.puts(uri.pathname)
-
 
   if( '/' == uri.pathname ){
     sys.puts('found!')
