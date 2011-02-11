@@ -36,9 +36,11 @@ Riak.prototype.stringifyQuery = function(query) {
 Riak.prototype.executeInternal = function(self, path, options, callback) {
 
   // self.client.setTimeout()
+  console.log(require('util').inspect(options.headers))
   var request = self.client.request(options.method.toUpperCase(), path, options.headers);
 
   if (options.data) {
+    console.log(options.data)
     request.write(options.data, options.requestEncoding || 'utf8');
   }
 
