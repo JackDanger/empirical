@@ -19,7 +19,7 @@ var testRecord = new testModel({
 
 // key hashing should be reliable
 assert.equal(
-  crypto.createHash('md5').update(':someId:someName').digest(),
+  'someId-someName',
   testRecord.key()
 )
 

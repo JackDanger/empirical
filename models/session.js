@@ -1,4 +1,5 @@
-Session = new Model('sessions', ['host', 'session_id'], {
+Session = new Model('sessions', ['host', 'id'], {
+
   index: function(host, callback){
     db
       .map(function(v, keydata, args) {

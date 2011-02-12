@@ -1,10 +1,9 @@
 require('../app')
 
-var sys     = require('sys'),
-    assert  = require('assert'),
-    crypto  = require('crypto')
+var assert  = require('assert')
 
 
+// saving
 var hosts = ['host1', 'host2', 'host3']
 for (i in hosts){
   var name = hosts[i]

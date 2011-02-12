@@ -4,5 +4,5 @@ var jake = require('jake'),
 jake.task('default', 'test')
 
 jake.task('test', function() {
-  OS.system('node test/*test.js')
+  OS.system('for test in test/*test.js; do node $test; done;')
 })
