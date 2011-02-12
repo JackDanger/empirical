@@ -1,14 +1,15 @@
-require('../lib/model')
-require('../models/host')
+require('../app')
 
 var sys     = require('sys'),
     assert  = require('assert'),
     crypto  = require('crypto')
 
-var myHost = new Host({
-  name: 'empiricalapp.com'
-})
 
-myHost.store(function(arg){
-  sys.puts(arg)
-})
+var hosts = ['host1, host2, host3']
+for (i in hosts){
+  var name = hosts[i]
+  var record = new Host({name: name})
+  record.save(function(buffer, meta){
+    sys.puts(meta.statusCode)
+  })
+}
