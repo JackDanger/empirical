@@ -33,9 +33,11 @@ testRecord.save(function(buffer, meta){
   assert.equal('',  buffer)
   assert.equal(204, meta.statusCode)
 })
-// saving records with explicit attributes
 
+// saving records with explicit attributes
 testRecord.save({name: 'newName'}, function(buffer, meta){
   assert.equal('',  buffer)
   assert.equal(204, meta.statusCode)
+  assert.equal('newName', this.attributes.name)
+  assert.equal('someId', this.attributes.id)
 })
