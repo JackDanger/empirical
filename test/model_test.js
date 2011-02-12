@@ -1,4 +1,4 @@
-require('../lib/datastore')
+require('../lib/model')
 
 var sys     = require('sys'),
     assert  = require('assert'),
@@ -26,4 +26,14 @@ assert.equal(
 // instance methods should work
 testRecord.instanceMethod('argument', function(a){
   assert.equal('argument', a)
+})
+
+// saving records with no explicit attributes
+testRecord.save(function(response){
+  sys.puts(require('util').inspect(response))
+})
+// saving records with explicit attributes
+
+testRecord.save({name: 'newName'}, function(response){
+  sys.puts(require('util').inspect(response))
 })

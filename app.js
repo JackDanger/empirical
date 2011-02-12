@@ -1,11 +1,10 @@
-require.paths.unshift('vendor')
 
 var sys  = require('sys'),
     util = require('util'),
     http = require('http'),
     url  = require('url')
 
-var riak = require('./lib/datastore')
+var riak = require('./lib/model')
 
 http.createServer(function(request, response){
 
