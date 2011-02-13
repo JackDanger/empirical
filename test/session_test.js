@@ -11,6 +11,13 @@ var sessions = [
   {id: 'session_2', user_name: 'Sally Sail', user_id: 3, host: 'host'},
   {id: 'session_3', user_name: 'Gruff Dogg', user_id: 3, host: 'host'}
 ]
+
+// finding
+Session.find(['host', 'session_2'], function(record){
+  assert.equal('Sally Sail', record.user_name)
+})
+
+// saving
 for (i in sessions){
   var attrs = sessions[i]
   var record = new Session(attrs)
@@ -19,3 +26,4 @@ for (i in sessions){
     assert.equal('New User', this.attributes.user_name)
   })
 }
+

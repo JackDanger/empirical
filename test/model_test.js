@@ -11,7 +11,6 @@ var testModel = new Model('bucket', ['id', 'name'], {
     return callback(arg)
   }
 })
-
 var testRecord = new testModel({
   id: 'someId',
   name: 'someName'
