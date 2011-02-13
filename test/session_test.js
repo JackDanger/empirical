@@ -1,6 +1,6 @@
 require('../app')
 
-var assert  = require('assert')
+var assert = require('assert')
 
 
 // saving
@@ -12,11 +12,6 @@ var sessions = [
   {id: 'session_3', user_name: 'Gruff Dogg', user_id: 3, host: 'host'}
 ]
 
-// finding
-Session.find(['host', 'session_2'], function(record){
-  assert.equal('Sally Sail', record.user_name)
-})
-
 // saving
 for (i in sessions){
   var attrs = sessions[i]
@@ -26,4 +21,24 @@ for (i in sessions){
     assert.equal('New User', this.attributes.user_name)
   })
 }
+// finding
+var savedAndFound
+(new Session({
+    host: 'second_host',
+    id: 'session_73',
+    user_name: 'Becca Finklestein'
+  }))
+    .save(function(buffer, meta){
+          assert.ok(
+            meta.statusCode >= 200 && meta.statusCode <  300,
+            'Creating record returned status: '+meta.statusCode
+          )
+          Session.find(['second_host', 'session_73'], function(record){
+            savedAndFound = true
+            assert.equal('Becca Finklestein', record.user_name)
+          })
+        })
 
+process.addListener('exit', function() {
+  assert.ok(savedAndFound);
+});
